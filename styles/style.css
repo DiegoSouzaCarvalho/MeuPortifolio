@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    --cor-primaria: #000000;
+    --cor-secundaria: #F6F6F6;
+    --cor-terciaria: #22D4FD;
+    --cor-body: linear-gradient(180deg, rgba(5,5,5,1) 24%, rgba(255,89,0,1) 100%);
+
+    --cor-hover-git: #171515;
+    --cor-hover-linkedin: #0e76a8;
+    --cor-hover-insta: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+
+
+    --font-primaria: 'Krona One', sans-serif;
+    --font-secundaria: 'Montserrat', sans-serif;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    background: var(--cor-body);
+    color: var(--cor-secundaria);
+    width: 100%;
+    height: 100%;
+
+}
+
+
+/*Cabecalho MENU*/
+.cabecalho {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+    align-items: center;
+}
+
+.cabecalho__logo {
+    width: 20%;
+}
+
+.cabecalho__botao {
+    display: none;
+}
+
+.cabecalho__menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+
+.cabecalho__link {
+    font-family: var(--font-secundaria);
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.apresentacao {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 2rem;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    height: 50rem;
+}
+
+.apresentacao__conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 50%;
+}
+
+.apresentacao__conteudo__titulo {
+    font-family: var(--font-primaria);
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.apresentacao__strong {
+    color: var(--cor-terciaria);
+}
+
+.apresentacao__conteudo__texto {
+    font-family: var(--font-secundaria);
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.apresentacao__links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 40rem;
+}
+
+.apresentacao__link__subtitulo {
+    font-family: var(--font-primaria);
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.apresentacao__links__link {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    border: 3px solid var(--cor-secundaria);
+    width: 280px;
+    height: 100px;
+    border-radius: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 10.5px 0;
+    text-decoration: none;
+    color: var(--cor-secundaria);
+    font-family: var(--font-secundaria);
+    align-items: center;
+}
+
+.apresentacao__links__link:hover:nth-child(1) {
+    background: var(--cor-hover-git);
+    transform: scale(1.5);
+
+}
+
+.apresentacao__links__link:hover:nth-child(2) {
+    background-color: var(--cor-hover-linkedin);
+    transform: scale(1.5);
+
+}
+
+.apresentacao__links__link:hover:nth-child(3) {
+    background: var(--cor-hover-insta);
+    transform: scale(1.5);
+}
+
+.rodape {
+    background: var(--cor-primaria);
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 600px) {
+    .cabecalho__logo {
+        width: 30%;
+    }
+
+    .cabecalho {
+        padding: 1.5rem;
+    }
+
+    .cabecalho__botao {
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    .hamburgue {
+        color: rgba(255,89,0,1);
+        display: block;
+        border-top: 3px solid;
+        width: 20px;
+    }
+
+    .hamburgue::after, .hamburgue::before {
+        content: '';
+        background: currentColor;
+        border-top: 1px solid;
+        display: block;
+        margin-top: 5px;
+        height: 2px;
+        width: 20px;
+        transition: .3s;
+        position: relative;
+    }
+
+    .cabecalho__menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: 0px;
+        background: var(--cor-body);
+        height: 0px;
+        transition: .6s;
+        z-index: 1000;
+        visibility: visible;
+        overflow-y: hidden;
+    }
+
+    .cabecalho__navegacao.active .cabecalho__menu {
+        height: calc(100vh - 70px);
+        visibility: visible;
+        overflow-y: auto;
+    }
+
+    .cabecalho__navegacao.active .hamburgue {
+        border-top-color: transparent;
+    }
+
+    .cabecalho__navegacao.active .hamburgue::before {
+        transform: rotate(135deg);
+    }
+
+    .cabecalho__navegacao.active .hamburgue::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+
+    .cabecalho__lista {
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid var(--cor-secundaria);
+    }
+
+    .apresentacao {
+        flex-direction: column-reverse;
+        padding: 1.5rem ;
+        justify-content: flex-end;
+        height: 50rem;
+    }
+
+    .apresentacao__conteudo {
+        width: 100%;
+    }
+
+    .apresentacao__conteudo__titulo {
+        font-size: 20px;
+    }
+
+    .apresentacao__conteudo__texto {
+        font-size: 18px;
+
+    }
+
+    .apresentacao__links {
+        flex-direction: column;
+    }
+
+    .apresentacao__links__link:hover:nth-child(1) {
+        background: var(--cor-hover-git);
+        transform: scale(1.1);
+    
+    }
+    
+    .apresentacao__links__link:hover:nth-child(2) {
+        background-color: var(--cor-hover-linkedin);
+        transform: scale(1.1);
+    
+    }
+    
+    .apresentacao__links__link:hover:nth-child(3) {
+        background: var(--cor-hover-insta);
+        transform: scale(1.1);
+    }
+
+
+
+
+
+
+}
